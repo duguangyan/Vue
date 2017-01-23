@@ -3,8 +3,12 @@
 
 --index.html 
 
---Vue  1.get/post/jsonp请求
+--Vue  1.数据 交互
 
 --Vue  2.Vue轮播图
 
 --Vue  3.Vue导航栏
+
+--vue-rescource.html
+
+--Vue  1.get/post/jsonp请求
