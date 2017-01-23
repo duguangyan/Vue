@@ -9,6 +9,8 @@
 
 --Vue  3.Vue导航栏
 
+--Vue  4.Vue template模板 ，复用组件化开发
+
 --vue-rescource.html
 
 --Vue  1.get/post/jsonp请求
