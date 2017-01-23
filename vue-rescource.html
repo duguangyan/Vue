@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" v-model="a" />
+		<input type="text" v-model="b" />
+		<input type="button" value="get按钮" @click="get()" />
+		<input type="button" value="post按钮" @click="post()" />
+		<input type="button" value="jsonp按钮" @click="jsonp()" />
+	</body>
+	<script type="text/javascript">
+		new Vue({
+			el:"body",
+			data:{
+				a:'',
+				b:''
+			},
+			methods:{
+				get:function(){
+					this.$http.get('get.php',{
+						a:this.a,
+						b:this.b,
+					}).then(function(res){
+						alert(res.data);
+					},function(res){
+						alert(res.status);
+					});
+				},
+				post:function(){
+					this.$http.post('post.php',{
+						a:this.a,
+						b:this.b
+					},{
+						emulateJSON:true
+					}).then(function(res){
+						alert(res.data);
+					},function(res){
+						alert(res.status);
+					});
+				},
+				jsonp:function(){
+					this.$http.jsonp('https://sug.so.360.cn/suggest?callback=suggest_so',{
+						word:'a',
+					}).then(function(res){
+						alert(res.data.s);
+					},function(res){
+						alert(res.status);
+					});
+				}
+			}
+			
+		});
+	</script>
+</html>
+
